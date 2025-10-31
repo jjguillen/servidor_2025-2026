@@ -25,7 +25,11 @@ if (!isset($_SESSION['usuario']))
 <body class="d-flex align-items-center py-4 bg-body-tertiary">
 
     <div class="container">
-        <?php include_once("header.php"); ?>
+        <?php
+        include_once("header.php");
+        include_once("modelo.php");
+        $incidencias = getIncidencias();
+        ?>
 
         <main>
 
@@ -44,29 +48,32 @@ if (!isset($_SESSION['usuario']))
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>IDF</th>
+                        <th>Código</th>
                         <th>DNI</th>
                         <th>Descripción</th>
+                        <th>Estado</th>
+                        <th>Fecha Creación</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
 
                     <?php
-                    $posicion = 0;
-                    foreach ($_SESSION['incidencias'] as $incidencia) {
+
+                    foreach ($incidencias as $incidencia) {
                         echo "<tr>";
-                        echo "<td>" . $incidencia['id'] . "</td>";
+                        echo "<td>" . $incidencia['codigo'] . "</td>";
                         echo "<td>" . $incidencia['dni'] . "</td>";
                         echo "<td>" . $incidencia['descr'] . "</td>";
+                        echo "<td>" . $incidencia['estado'] . "</td>";
+                        echo "<td>" . $incidencia['fecha_creacion'] . "</td>";
                         echo "<td>";
                         echo "<a class='btn btn-success me-2' href='controlador.php?accion=verIncidencia&id=" . $incidencia['id'] . "'><i class='fa-solid fa-eye'></i></a>";
 
-                        echo "<a class='btn btn-danger' href='controlador.php?accion=delIncidencia&posicion=" . $posicion . "'><i class='fa-solid fa-trash'></i></a>";
+                        echo "<a class='btn btn-danger' href='controlador.php?accion=delIncidencia&id=" .  $incidencia['id']  . "'><i class='fa-solid fa-trash'></i></a>";
 
                         echo "</td>";
                         echo "</tr>";
-                        $posicion++;
                     }
 
                     ?>

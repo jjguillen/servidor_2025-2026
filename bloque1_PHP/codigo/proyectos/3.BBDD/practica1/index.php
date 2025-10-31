@@ -6,5 +6,5 @@ if (! isset($_SESSION['usuario'])) {
     header("Location: login.php");
 } else {
     //Si está logueado redirigimos a table.php
-    header("Location: table.php");
+    header("Location: clientes.php");
 }

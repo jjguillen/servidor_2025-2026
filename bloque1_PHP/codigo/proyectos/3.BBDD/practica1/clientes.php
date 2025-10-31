@@ -47,6 +47,8 @@ if (!isset($_SESSION['usuario']))
                         <th>Nombre</th>
                         <th>DNI</th>
                         <th>Email</th>
+                        <th>Direccion</th>
+                        <th>Teléfono</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
@@ -58,6 +60,8 @@ if (!isset($_SESSION['usuario']))
                         echo "<td>" . $cliente['nombre'] . "</td>";
                         echo "<td>" . $cliente['dni'] . "</td>";
                         echo "<td>" . $cliente['email'] . "</td>";
+                        echo "<td>" . $cliente['direccion'] . "</td>";
+                        echo "<td>" . $cliente['telefono'] . "</td>";
                         echo "<td>";
 
                         echo "<a class='btn btn-success me-2' href='controlador.php?accion=verCliente&id=" . $cliente['id'] . "'><i class='fa-solid fa-eye'></i></a>";

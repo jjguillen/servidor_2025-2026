@@ -25,7 +25,11 @@ if (!isset($_SESSION['usuario']))
 <body class="d-flex align-items-center py-4 bg-body-tertiary">
 
     <div class="container">
-        <?php include_once("header.php"); ?>
+        <?php
+        include_once("header.php");
+        include_once("modelo.php");
+        $incidencia = getIncidencia($_REQUEST['id']);
+        ?>
 
         <main>
 
@@ -41,11 +45,56 @@ if (!isset($_SESSION['usuario']))
                 <div class="card-header">
                     Detalle de incidencia
                 </div>
-                <div class="card-body">
-                    <h5 class="card-title"><?= $_REQUEST['id']; ?> - <?= $_REQUEST['dni']; ?></h5>
-                    <p class="card-text"><?= $_REQUEST['descr']; ?></p>
-                    <a href="./incidencias.php" class="btn btn-primary">Volver</a>
-                </div>
+
+                <?php if (isset($incidencia)) { ?>
+
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title"><?= $incidencia['codigo']; ?></h5>
+                            <p class="card-text">Descripcion: <?= $incidencia['descr']; ?></p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Dni: <?= $incidencia['dni']; ?></li>
+
+                            <li class="list-group-item">
+                                Estado: <?= $incidencia['estado']; ?>
+                                <form action="controlador.php" method="POST" id="fui">
+                                    <select name=" estado">
+                                        <?php
+                                        if (strcmp($incidencia['estado'], "enproceso") == 0) {
+                                            echo '<option value="enproceso" selected>En proceso</option>';
+                                        } else {
+                                            echo '<option value="enproceso">En proceso</option>';
+                                        }
+                                        if (strcmp($incidencia['estado'], "terminada") == 0) {
+                                            echo '<option value="terminada" selected>Terminada</option>';
+                                        } else {
+                                            echo '<option value="terminada">Terminada</option>';
+                                        }
+                                        if (strcmp($incidencia['estado'], "cancelada") == 0) {
+                                            echo '<option value="cancelada" selected>Cancelada</option>';
+                                        } else {
+                                            echo '<option value="cancelada">Cancelada</option>';
+                                        }
+                                        ?>
+                                    </select>
+                                    <input type="hidden" name="id" value="<?= $incidencia['id']; ?>">
+                                </form>
+                            </li>
+
+                            <li class="list-group-item">Fecha creación: <?= $incidencia['fecha_creacion']; ?></li>
+                        </ul>
+                        <div class="card-body">
+                            <a href="./incidencias.php" class="btn btn-primary">Volver</a>
+                            <button type="submit" class="btn btn-danger" name="modificarIncidencia" form="fui">Guardar</button>
+                        </div>
+                    </div>
+
+                <?php
+                } else {
+                    echo "NO ENCONTRADO";
+                }
+                ?>
             </div>
 
 

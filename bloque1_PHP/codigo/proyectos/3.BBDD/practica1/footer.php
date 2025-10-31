@@ -9,10 +9,6 @@
              <div class="modal-body">
 
                  <form action="controlador.php" method="POST" id="fni">
-                     <div class=" form-floating">
-                         <input type="text" class="form-control" name="id" placeholder="00001">
-                         <label for="floatingInput">ID</label>
-                     </div>
                      <div class="form-floating">
                          <input type="text" class="form-control" name="dni" placeholder="41234785-F">
                          <label for="floatingInput">DNI</label>
@@ -55,6 +51,14 @@
                      <div class="form-floating">
                          <input type="email" class="form-control" name="email" placeholder="javper@gmail.com">
                          <label for="floatingInput">Email</label>
+                     </div>
+                     <div class="form-floating">
+                         <input type="text" class="form-control" name="direccion" placeholder="Calle del Horror 7">
+                         <label for="floatingInput">Dirección</label>
+                     </div>
+                     <div class="form-floating">
+                         <input type="tel" class="form-control" name="telefono">
+                         <label for="floatingInput">Teléfono</label>
                      </div>
                  </form>
 
@@ -118,6 +122,7 @@
          </div>
      </div>
  </div>
+
 
 
  <script src="./js/bootstrap.min.js"></script>
