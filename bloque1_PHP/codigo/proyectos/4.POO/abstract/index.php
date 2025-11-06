@@ -1,7 +1,13 @@
 <?php
 
-include_once "CuentaRemunerada.php";
-include_once "CuentaCorriente.php";
+//Autocargar las clases --------------------------
+spl_autoload_register(function ($class) {
+    //echo substr($class, strpos($class, "\\"));
+    //$ruta = substr($class, strpos($class, "\\"));
+    //$ruta = str_replace("\\", "/", $ruta);
+    include_once "./" . $class . ".php";
+});
+//Fin Autcargar ----------------------------------
 
 $c1 = new CuentaRemunerada("ES0032-4441-2223", 1000, 2);
 $c2 = new CuentaCorriente("ES0032-4441-9874", 2000);

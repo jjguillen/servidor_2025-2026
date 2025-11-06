@@ -1,0 +1,29 @@
+<?php
+
+namespace Database\Seeders;
+
+use App\Models\Categoria;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Seeder;
+
+class CategoriaSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     */
+    public function run(): void
+    {
+        Categoria::factory()->create([
+            'nombre' => 'Cine',
+        ]);
+        Categoria::factory()->create([
+            'nombre' => 'Música',
+        ]);
+        Categoria::factory()->create([
+            'nombre' => 'Teatro',
+        ]);
+        Categoria::factory()->create([
+            'nombre' => 'Festival'
+        ]);
+    }
+}

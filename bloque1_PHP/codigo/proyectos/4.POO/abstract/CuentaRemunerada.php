@@ -1,7 +1,5 @@
 <?php
 
-include_once "CuentaBancaria.php";
-
 
 class CuentaRemunerada extends CuentaBancaria implements Contable
 {

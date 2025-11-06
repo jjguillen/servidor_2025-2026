@@ -1,6 +1,5 @@
 <?php
 
-include_once "Contable.php";
 
 class TarjetaCredito implements Contable
 {

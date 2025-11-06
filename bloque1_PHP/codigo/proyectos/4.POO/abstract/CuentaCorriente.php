@@ -1,7 +1,5 @@
 <?php
 
-include_once "CuentaBancaria.php";
-
 class CuentaCorriente extends CuentaBancaria
 {
 

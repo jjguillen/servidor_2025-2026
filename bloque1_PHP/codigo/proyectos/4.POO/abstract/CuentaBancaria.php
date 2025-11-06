@@ -1,7 +1,5 @@
 <?php
 
-include_once "Contable.php";
-
 abstract class CuentaBancaria implements Contable
 {
 
