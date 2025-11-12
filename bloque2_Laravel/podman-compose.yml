@@ -1,0 +1,27 @@
+version: "3.3"
+
+services:
+  #Linux
+  linux:
+    container_name: debian
+    image: docker.io/debian:latest
+    volumes:
+      - ./example-app:/home/host:Z
+    ports:
+      - "8001:8000"
+    command: sleep infinity
+
+  #MariaDB
+  db:
+    container_name: mariadb_laravel
+    image: docker.io/mariadb:latest
+    environment:
+      MARIADB_ROOT_PASSWORD: toor
+      MARIADB_DATABASE: laravel
+      MARIADB_USER: usuario
+      MARIADB_PASSWORD: usuario1234
+    volumes:
+      - ./mariadb:/var/lib/mysql
+#Comando para lanzar Laravel desde el contenedor y que se exponga el puerto
+#cd /home/host
+#php artisan serve --host=0.0.0.0 --port=8000
