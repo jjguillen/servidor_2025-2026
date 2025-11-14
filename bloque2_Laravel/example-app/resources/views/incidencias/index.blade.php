@@ -35,7 +35,7 @@
                     <td>{{$incidencia->estado}}</td>
                     <td>{{$incidencia->descripcion}}</td>
                     <td>
-                        <a href="./incidencias/delete/{{$incidencia->id}}" class="btn btn-danger">X</a>
+                        <a href="{{route('incidencias.delete', $incidencia->id)}}" class="btn btn-danger">X</a>
                     </td>
                 </tr>
             @endforeach
