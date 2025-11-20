@@ -41,10 +41,10 @@
                     @endif
                 </td>
                 <td>
-                    <form action="{{route('tecnicos.delete', $tecnico->id)}}" method="POST" class="d-inline">
+                    <form action="{{route('tecnicos.destroy', $tecnico->id)}}" method="POST" class="d-inline">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger m-1">Eliminar</button>
+                        <button type="submit" class="btn btn-outline-danger m-1">Eliminar</button>
                     </form>
                     <a href="{{route('tecnicos.show', $tecnico->id)}}" class="btn btn-outline-success m-1">Ver</a>
                 </td>

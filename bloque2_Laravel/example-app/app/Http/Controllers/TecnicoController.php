@@ -62,7 +62,7 @@ class TecnicoController extends Controller
      */
     public function destroy(Tecnico $tecnico)
     {
-        Tecnico::destroy($tecnico);
+        $tecnico->delete();
         return redirect()->route('tecnicos.index');
     }
 }
