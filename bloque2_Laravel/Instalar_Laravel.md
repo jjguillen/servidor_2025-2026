@@ -81,5 +81,40 @@ DB_PASSWORD=usuario1234
 Para crear las bases de datos iniciales ejecutamos:  
 php artisan migrate
 
+### 4. Ejecutar la aplicación
 Volvemos a ejecutar: composer run dev  
 Abrimos http://localhost:8000 y debería funcionar ;)
+
+
+### 5. Instalación de la app desde GitHub en otro equipo o servidor
+#### Requisitos previos
+- Tener instalado PHP, Composer, Node.js y MariaDB (podman) como en los pasos anteriores.
+
+#### Clonar repositorio e instalar dependencias
+```
+git clone <repo_url>  
+cd <repo_folder>  
+composer install  
+npm install && npm run build  
+cp .env.example .env  
+```
+
+#### Configuración de la aplicación
+Editar .env con la configuración de la app original incluyendo idioma, BBDD, etc.
+
+#### Generar clave de aplicación, migrar base de datos y ejecutar servidor
+```
+php artisan key:generate  
+php artisan migrate  
+php artisan serve  
+```
+
+Si tuvieramos datos de ejemplo en la app original, ejecutar:  
+```
+php artisan db:seed
+``` 
+
+
+
+
+
