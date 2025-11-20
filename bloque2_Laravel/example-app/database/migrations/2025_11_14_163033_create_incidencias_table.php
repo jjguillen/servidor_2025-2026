@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('direccion', 200);
             $table->text('descripcion');
             $table->enum('estado', ['pendiente', 'en proceso', 'resuelta'])->default('pendiente');
+            //$table->foreignId('tecnico_id')->constrained('tecnicos');
             $table->timestamps();
         });
     }
@@ -29,5 +30,11 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('incidencias');
+
+        /*
+        Schema::table('incidencias', function (Blueprint $table) {
+            $table->dropForeign(['tecnico_id']);
+        });
+         */
     }
 };
