@@ -3,9 +3,9 @@
 ---
 
 ## Instalación
-composer require laravel/fortify
-php artisan fortify:install
-php artisan migrate
+composer require laravel/fortify  
+php artisan fortify:install  
+php artisan migrate  
 
 ## Configuración
 
@@ -115,7 +115,8 @@ Fortify no incluye vistas por defecto, por lo que debemos crearlas:
 Fortify registra automáticamente las rutas necesarias para autenticación, registro, restablecimiento de contraseña,
 etc. Puedes verlas ejecutando `php artisan route:list`. 
 
-Por defecto después de login y register nos lleva a una vista 'home' que no existe, lo podemos cambiar en
+Por defecto después de login y register nos lleva a una vista 'home' que no existe, lo podemos cambiar en:
+`config/fortify.php` en la opción de Home Path `'home' => '/home'` o mejor en:
 `app/Providers/FortifyServiceProvider.php`:
 ```
 use Laravel\Fortify\Fortify;
