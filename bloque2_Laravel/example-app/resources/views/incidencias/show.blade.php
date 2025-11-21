@@ -23,7 +23,9 @@
                 <h5 class="card-title">{{$incidencia->ciudad}}</h5>
                 <h6 class="card-title">{{$incidencia->direccion}}</h6>
                 <p class="card-text">{{$incidencia->descripcion}}</p>
-                <img src="{{asset("storage/".$incidencia->imagen)}}">
+                @if(isset($incidencia->imagen))
+                    <img src="{{asset("storage/".$incidencia->imagen)}}">
+                @endif
             </div>
             <div class="card-footer text-muted">
                 {{$incidencia->created_at}}
