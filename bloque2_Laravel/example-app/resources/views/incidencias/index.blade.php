@@ -25,6 +25,7 @@
                 <th scope="col">Dirección</th>
                 <th scope="col">Estado</th>
                 <th scope="col">Descripción</th>
+                <th scope="col">Técnico</th>
                 <th scope="col">Acciones</th>
             </tr>
             </thead>
@@ -38,6 +39,7 @@
                     <td>{{$incidencia->direccion}}</td>
                     <td>{{$incidencia->estado}}</td>
                     <td>{{$incidencia->descripcion}}</td>
+                    <td>{{$incidencia->tecnico->nombre}}</td>
                     <td>
                         <a href="{{route('incidencias.delete', $incidencia->id)}}" class="btn btn-danger m-1">Eliminar</a>
                         <a href="{{route('incidencias.show', $incidencia->id)}}" class="btn btn-success m-1">Ver</a>

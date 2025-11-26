@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Tecnico;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 
 class TecnicoController extends Controller
@@ -12,7 +13,9 @@ class TecnicoController extends Controller
      */
     public function index()
     {
-        $tecnicos = Tecnico::all();
+        //Collection<Tecnico>
+        //$tecnicos = Tecnico::all();
+        $tecnicos = Tecnico::where('estado', 'libre')->get();
         return view('tecnicos.index', compact('tecnicos'));
     }
 
@@ -38,7 +41,19 @@ class TecnicoController extends Controller
      */
     public function show(Tecnico $tecnico)
     {
-        return view('tecnicos.show', compact('tecnico'));
+        //$incidencias = $tecnico->incidencias;
+        $incidencias = $tecnico->incidencias()
+            ->where(function (Builder $query) {
+                return $query->where('estado', 'pendiente')
+                             ->orWhere('estado', 'en proceso');
+            })
+            ->get();
+
+        $numeroInc = $tecnico->loadCount('incidencias');
+
+
+        return view('tecnicos.show', compact('tecnico','incidencias', 'numeroInc'));
+        //return view('tecnicos.show', ['tecnico' => $tecnico, 'incidencias' => $incidencias]);
     }
 
     /**

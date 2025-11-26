@@ -23,6 +23,7 @@ class IncidenciaFactory extends Factory
             'direccion' => fake()->address(),
             'descripcion' => fake()->paragraph(),
             'estado' => fake()->randomElement(['pendiente', 'en proceso', 'resuelta']),
+            'tecnico_id' => fake()->numberBetween(1, 10)
         ];
     }
 }

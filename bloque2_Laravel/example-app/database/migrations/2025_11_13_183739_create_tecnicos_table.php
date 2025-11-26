@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('nombre', 50);
             $table->string('apellidos', 50);
             $table->string('telefono', 15);
-            $table->string('email', 50);
+            $table->string('email', 50)->unique();
             $table->enum('estado', ['ocupado', 'libre'])->default('libre');
             $table->timestamps();
         });
