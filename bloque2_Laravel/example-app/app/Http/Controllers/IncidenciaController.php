@@ -46,7 +46,8 @@ class IncidenciaController extends Controller
 
     public function show($id) {
         $incidencia = Incidencia::findOrFail($id);
-        return view('incidencias.show', ['incidencia' => $incidencia]);
+        $tecnico = $incidencia->tecnico; //Obtengo el tecnico asignado a la incidencia
+        return view('incidencias.show', ['incidencia' => $incidencia, 'tecnico' => $tecnico]);
 
 
     }

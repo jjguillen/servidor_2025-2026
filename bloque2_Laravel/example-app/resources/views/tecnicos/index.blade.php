@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Incidencias</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
 </head>
 <body>
 <div class="container">
@@ -40,13 +41,13 @@
                         <span class="badge bg-danger">{{$tecnico->estado}}</span>
                     @endif
                 </td>
-                <td>
+                <td class="d-flex gap-2">
                     <form action="{{route('tecnicos.destroy', $tecnico->id)}}" method="POST" class="d-inline">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-outline-danger m-1">Eliminar</button>
+                        <button type="submit" class="btn btn-outline-danger m-1"><i class="bi bi-trash"></i></button>
                     </form>
-                    <a href="{{route('tecnicos.show', $tecnico->id)}}" class="btn btn-outline-success m-1">Ver</a>
+                    <a href="{{route('tecnicos.show', $tecnico->id)}}" class="btn btn-outline-success m-1"><i class="bi bi-eye"></i></a>
                 </td>
             </tr>
         @endforeach

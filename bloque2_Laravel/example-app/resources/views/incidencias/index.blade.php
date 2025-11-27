@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Incidencias</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+
 </head>
 <body>
     <div class="container">
@@ -40,9 +42,9 @@
                     <td>{{$incidencia->estado}}</td>
                     <td>{{$incidencia->descripcion}}</td>
                     <td>{{$incidencia->tecnico->nombre}}</td>
-                    <td>
-                        <a href="{{route('incidencias.delete', $incidencia->id)}}" class="btn btn-danger m-1">Eliminar</a>
-                        <a href="{{route('incidencias.show', $incidencia->id)}}" class="btn btn-success m-1">Ver</a>
+                    <td class="d-flex gap-2">
+                        <a href="{{route('incidencias.delete', $incidencia->id)}}" class="btn btn-outline-danger m-1"><i class="bi bi-trash"></i></a>
+                        <a href="{{route('incidencias.show', $incidencia->id)}}" class="btn btn-outline-success m-1"><i class="bi bi-eye"></i></a>
                     </td>
                 </tr>
             @endforeach

@@ -16,8 +16,12 @@
         </button>
 
         <div class="card text-center mt-3 mb-3">
-            <div class="card-header">
-                {{$incidencia->estado}}
+            <div class="card-header
+                @if($incidencia->estado === 'pendiente') bg-warning text-dark
+                @elseif($incidencia->estado === 'en proceso') bg-info text-white
+                @elseif($incidencia->estado === 'resuelta') bg-success text-white
+                @endif">
+                {{ ucfirst($incidencia->estado) }}
             </div>
             <div class="card-body">
                 <h5 class="card-title">{{$incidencia->ciudad}}</h5>
@@ -28,6 +32,13 @@
                 @endif
             </div>
             <div class="card-footer text-muted">
+                <p><strong>Técnico asignado:</strong>
+                    @if($incidencia->tecnico)
+                        {{ $incidencia->tecnico->nombre }}
+                    @else
+                        <span class="text-muted">No asignado</span>
+                    @endif
+                </p>
                 {{$incidencia->created_at}}
             </div>
         </div>
