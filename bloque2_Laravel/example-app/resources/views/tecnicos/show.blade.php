@@ -32,8 +32,9 @@
         </div>
     </div>
 
-    <h3>{{$numeroInc->incidencias_count}}</h3>
+    <h5>Incidencias totales asignadas: {{$numeroInc->incidencias_count}}</h5>
 
+    <h5 class="mt-4">Incidencias pendientes o en proceso:</h5>
     <table class="table table-bordered">
         <thead>
         <tr>
