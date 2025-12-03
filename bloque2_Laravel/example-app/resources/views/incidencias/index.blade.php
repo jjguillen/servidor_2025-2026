@@ -90,11 +90,20 @@
                             <label class="form-label">Imagen</label>
                             <input type="file" class="form-control" name="imagen">
                         </div>
+                        <div class="mb-3">
+                            <select class="form-select" name="tecnico_id">
+                                @foreach($tecnicos as $tecnico)
+                                    <option value="{{$tecnico->id}}">{{$tecnico->nombre}}</option>
+                                @endforeach
+                            </select>
+                        </div>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    @if (count($tecnicos) > 0)
                     <button type="submit" class="btn btn-primary" form="nuevaIncidenciaForm">Guardar</button>
+                    @endif
                 </div>
             </div>
         </div>

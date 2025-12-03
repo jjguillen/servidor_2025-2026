@@ -23,6 +23,7 @@
             <th scope="col">Apellidos</th>
             <th scope="col">Teléfono</th>
             <th scope="col">Email</th>
+            <th scope="col">Especialidades</th>
             <th scope="col">Estado</th>
             <th scope="col">Acciones</th>
         </tr>
@@ -34,6 +35,11 @@
                 <td>{{$tecnico->apellidos}}</td>
                 <td>{{$tecnico->telefono}}</td>
                 <td>{{$tecnico->email}}</td>
+                <td>
+                    @foreach($tecnico->especialidades as $especialidad)
+                        <span class="me-1">{{$especialidad->nombre}}</span>
+                    @endforeach
+                </td>
                 <td>
                     @if($tecnico->estado == 'libre')
                         <span class="badge bg-success">{{$tecnico->estado}}</span>
